@@ -1,0 +1,182 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #111;
+    color: white;
+}
+
+/* ... Estilos para header, main y footer ... */
+
+/* Elementos interactivos */
+.interactive-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.interactive-button:hover {
+    transform: scale(1.1);
+}
+
+.interactive-slider {
+    width: 100%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Pseudoelementos */
+.pseudo-section {
+    position: relative;
+}
+
+.pseudo-section::before {
+    content: "🌟";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+/* Elementos 3D */
+.three-d-container {
+    perspective: 800px;
+    display: inline-block;
+    margin: 20px;
+}
+
+.three-d-box {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateAnimation 20s linear infinite;
+}
+
+.three-d-box-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    opacity: 0.8;
+    background-color: rgba(52, 152, 219, 0.8);
+}
+
+.three-d-box-face:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
+.three-d-box-face:nth-child(2) { transform: rotateY(180deg) translateZ(100px); }
+.three-d-box-face:nth-child(3) { transform: rotateY(90deg) translateZ(100px); }
+.three-d-box-face:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
+.three-d-box-face:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
+.three-d-box-face:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateAnimation {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* Cursores Personalizados */
+.custom-cursor-area {
+    padding: 20px;
+    border: 2px dashed #3498db;
+    cursor: url('/images/custom-cursor.png'), auto;
+}
+
+.custom-cursor-area:hover {
+    cursor: url('/images/custom-cursor-hover.png'), auto;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .feature {
+        margin: 20px 0;
+    }
+    
+    /* Ajustar tamaño de elementos interactivos */
+    .interactive-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    /* Ajustar tamaño de control deslizante */
+    .interactive-slider {
+        width: 80%;
+    }
+    
+    /* Ajustar tamaño de conmutador */
+    .switch {
+        width: 30px;
+        height: 15px;
+    }
+    .slider {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+    }
+    .slider:before {
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* Ajustar tamaño de sección pseudo */
+    .pseudo-section::before {
+        font-size: 20px;
+    }
+}
+
+
